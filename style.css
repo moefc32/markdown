@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.618em;
+  background-color: #fff;
+  color: #424242;
+}
+
+code {
+  white-space: normal;
+}
+
+section {
+  width: 100vw;
+  height: 100vh;
+}
+
+#editor {
+  float: left;
+  width: 40%;
+  height: 100%;
+  padding: 20px;
+  border: none;
+  border-right: 1px solid #ccc;
+  resize: none;
+  outline: none;
+  background-color: #eee;
+  font-size: 14px;
+  font-family: monospace;
+  overflow-y: scroll;
+}
+
+#markdown {
+  float: left;
+  width: 60%;
+  height: 100%;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+#markdown *:first-child {
+  margin-top: 0;
+}
