@@ -1,5 +1,5 @@
 new Vue({
-  el: "section",
+  el: "#main",
   data: {
     input: "# Hello there!"
   },

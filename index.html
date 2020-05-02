@@ -11,9 +11,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <section>
-    <textarea id="editor" :value="input" @input="update"></textarea>
-    <div id="markdown" v-html="compiledMarkdown"></div>
+  <section id="main">
+    <textarea class="editor" :value="input" @input="update"></textarea>
+    <div class="markdown" v-html="compiledMarkdown"></div>
   </section>
 
   <script src="script.js"></script>

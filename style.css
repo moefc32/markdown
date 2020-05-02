@@ -18,12 +18,12 @@ code {
   white-space: normal;
 }
 
-section {
+#main {
   width: 100vw;
   height: 100vh;
 }
 
-#editor {
+.editor {
   float: left;
   width: 40%;
   height: 100%;
@@ -38,7 +38,7 @@ section {
   overflow-y: scroll;
 }
 
-#markdown {
+.markdown {
   float: left;
   width: 60%;
   height: 100%;
@@ -46,6 +46,6 @@ section {
   overflow-y: scroll;
 }
 
-#markdown *:first-child {
+.markdown *:first-child {
   margin-top: 0;
 }
