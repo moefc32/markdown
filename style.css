@@ -18,6 +18,10 @@ code {
   white-space: normal;
 }
 
+img {
+  max-width: 100%;
+}
+
 #main {
   width: 100vw;
   height: 100vh;
