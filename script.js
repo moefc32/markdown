@@ -1,7 +1,13 @@
+if (localStorage.getItem('myItem')) {
+  a = localStorage.getItem('myItem');
+} else {
+  a = "# Hello there!";
+}
+
 new Vue({
   el: "#main",
   data: {
-    input: "# Hello there!"
+    input: a
   },
   computed: {
     compiledMarkdown: function () {
@@ -16,3 +22,8 @@ new Vue({
     }, 300)
   }
 });
+
+function savetoBrowser() {
+  b = document.getElementById("editor").value;
+  localStorage.setItem('myItem', b);
+}

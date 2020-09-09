@@ -22,7 +22,7 @@
 
 <body>
   <section id="main">
-    <textarea id="editor" :value="input" @input="update"></textarea>
+    <textarea id="editor" :value="input" @input="update" oninput="savetoBrowser()"></textarea>
     <div id="markdown" v-html="compiledMarkdown"></div>
   </section>
 
