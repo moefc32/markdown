@@ -69,7 +69,7 @@ code {
   overflow: hidden;
 }
 
-.editor {
+#editor {
   float: left;
   width: 40%;
   height: 100%;
@@ -84,7 +84,7 @@ code {
   overflow-y: scroll;
 }
 
-.markdown {
+#markdown {
   float: left;
   width: 60%;
   height: 100%;
@@ -92,7 +92,7 @@ code {
   overflow-y: scroll;
 }
 
-.markdown *:first-child {
+#markdown *:first-child {
   margin-top: 0;
 }
 
@@ -102,7 +102,7 @@ code {
     flex-direction: column;
   }
 
-  .editor{
+  #editor{
     order: 2;
     width: 100%;
     height: 40%;
@@ -110,7 +110,7 @@ code {
     border-top: 1px solid #ccc;
   }
 
-  .markdown {
+  #markdown {
     order: 1;
     width: 100%;
     height: 60%;
