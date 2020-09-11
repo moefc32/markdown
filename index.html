@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="icon" type="image/x-icon" href="favicon.png">
   <title>Simple Markdown Editor | Mfc Website</title>
   <script src="https://unpkg.com/vue"></script>
@@ -22,9 +22,13 @@
 
 <body>
   <section id="main">
-    <textarea id="editor" :value="input" @input="update" oninput="savetoBrowser()"></textarea>
+    <textarea id="editor" :value="input" @input="update" oninput="saveToBrowser()"></textarea>
     <div id="markdown" v-html="compiledMarkdown"></div>
   </section>
+
+  <a id="btn-save" onclick="clickToDownload()">
+    Save file
+  </a>
 
   <script src="script.js"></script>
 </body>
