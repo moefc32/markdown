@@ -7,7 +7,7 @@ function alpineData() {
     return {
         input: '',
         fontSize: localStorage.getItem('fontSize') || 16,
-        wysiwyg: false,
+        wysiwyg: (localStorage.getItem('wysiwyg') === 'true') || false,
         fileSaveName: 'markdown.md',
         compiledMarkdown: function () {
             return marked.parse(this.input, { sanitize: true });
@@ -15,6 +15,7 @@ function alpineData() {
         editorToggle: function () {
             if (editorInstance) editorInstance.setContent(this.compiledMarkdown());
             this.wysiwyg = !this.wysiwyg;
+            localStorage.setItem('wysiwyg', this.wysiwyg);
         },
         downloadFile: function () {
             const a = document.createElement('a');
