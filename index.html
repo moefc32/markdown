@@ -4,8 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="icon" type="image/x-icon" href="favicon.svg">
+
+    <link rel="icon" type="image/x-icon" href="res/favicon.svg">
     <title>Simple Markdown Editor | Mfc Website</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="res/style.css">
 
     <script src="https://mf-chan.com/res/alpine.min.js" defer></script>
@@ -20,14 +23,27 @@
 </head>
 
 <body x-data="alpineData" x-init="alpineInit()">
-    <textarea id="editor" x-model="input" @input="localStorage.setItem('savedStrings', input.toString())"></textarea>
-    <div class="markdown" x-html="compiledMarkdown"></div>
+    <div class="wysiwyg" :class="wysiwyg || 'hide'">
+        <textarea id="wysiwyg"></textarea>
+    </div>
 
-    <button @click="downloadFile()">
-        Save File
-    </button>
+    <textarea id="markdown" :readonly="wysiwyg" x-model="input"
+        @input="localStorage.setItem('savedStrings', input.toString())"></textarea>
+
+    <div class="markdown" x-show="!wysiwyg" x-html="compiledMarkdown"></div>
+
+    <div class="buttons">
+        <button @click="editorToggle()">
+            <i class="fa-solid fa-code"></i> Toggle Editor
+        </button>
+        <button @click="downloadFile()">
+            <i class="fa-solid fa-download"></i> Save File
+        </button>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.0/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turndown/7.0.0/turndown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.3/tinymce.min.js"></script>
     <script src="res/script.js"></script>
 </body>
 

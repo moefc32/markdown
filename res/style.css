@@ -69,9 +69,18 @@ code {
     white-space: normal;
 }
 
-textarea {
+textarea#wysiwyg {
+    resize: none;
+    outline: none;
+    font-size: 14px;
+    font-family: monospace;
+    border: 0;
+    overflow-y: auto;
+}
+
+textarea#markdown {
     flex: 1;
-    padding: 20px;
+    padding: 30px;
     resize: none;
     outline: none;
     background-color: #eee;
@@ -81,9 +90,20 @@ textarea {
     overflow-y: auto;
 }
 
+div.wysiwyg {
+    display: flex;
+    align-items: stretch;
+    flex: 1;
+    padding: 5px;
+}
+
+div.wysiwyg>div {
+    flex: 1;
+}
+
 div.markdown {
     flex: 1;
-    padding: 20px;
+    padding: 30px;
     border: 0;
     overflow-y: auto;
 }
@@ -93,17 +113,33 @@ div.markdown *:first-child {
 }
 
 button {
-    display: block;
-    position: fixed;
-    z-index: 1000;
-    right: 15px;
-    bottom: 15px;
-    padding: 5px 15px;
+    padding: 10px 15px;
     background: #ddd;
     border: solid 1px #aaa;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, .15);
     cursor: pointer;
+    transition: .15s;
+}
+
+button:hover {
+    background: #ccc;
+}
+
+button>i {
+    margin-right: .5em;
+}
+
+.buttons {
+    display: block;
+    position: fixed;
+    z-index: 1000;
+    right: 15px;
+    bottom: 15px;
+}
+
+.hide {
+    display: none !important;
 }
 
 @media (min-width: 768px) {
@@ -113,11 +149,15 @@ button {
 }
 
 @media (min-width: 992px) {
-    textarea {
-        flex: 2;
+    div.wysiwyg {
+        flex: 4;
+    }
+
+    textarea#markdown {
+        flex: 6;
     }
 
     div.markdown {
-        flex: 3;
+        flex: 9;
     }
 }
