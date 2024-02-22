@@ -94,3 +94,7 @@ div#html *:first-child {
 .dropdown-menu .input-group {
     width: 260px;
 }
+
+[x-cloak] {
+    display: none !important;
+}
