@@ -23,39 +23,44 @@
     </script>
 </head>
 
-<body class="d-flex flex-column flex-md-row m-0 p-0" x-data="alpineData" x-init="alpineInit()"
-    :style="`font-size: ${fontSize}px;`">
+<body class="d-flex flex-column flex-md-row m-0 p-0" x-data="alpineData" x-init="alpineInit()">
     <div class="col col-md-6 col-xl-5 p-1 overflow-y-auto" :class="wysiwyg || 'd-none'">
-        <textarea id="wysiwyg" class="border-0"></textarea>
+        <textarea id="wysiwyg" class="d-none border-0" :style="`font-size: ${fontSize}px;`"></textarea>
     </div>
 
-    <textarea id="markdown" class="col p-4 border-0 overflow-y-auto" :readonly="wysiwyg" x-model="input"
-        @input="localStorage.setItem('savedStrings', input.toString())"></textarea>
+    <textarea id="markdown" class="col p-4 pb-5 border-0 overflow-y-auto" :readonly="wysiwyg" x-model="input"
+        @input="localStorage.setItem('savedStrings', input.toString())" :style="`font-size: ${fontSize}px;`"></textarea>
 
-    <div id="html" class="col col-md-6 col-xl-7 p-4 overflow-y-auto" x-show="!wysiwyg" x-html="compiledMarkdown"></div>
+    <div id="html" class="col col-md-6 col-xl-7 p-4 pb-5 overflow-y-auto" :style="`font-size: ${fontSize}px;`"
+        x-show="!wysiwyg" x-html="compiledMarkdown"></div>
 
-    <div class="button-container">
-        <button class="btn btn-success shadow-sm" @click="editorToggle()">
-            <i class="fa-solid fa-code fa-fw me-1"></i> Toggle Editor
-        </button>
-        <button class="btn btn-primary shadow-sm" @click="downloadFile()">
-            <i class="fa-solid fa-download fa-fw me-1"></i> Save File
-        </button>
-    </div>
-
-    <div class="modal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Modal body text goes here.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+    <div class="configs d-flex flex-column">
+        <div class="input-group mb-2 shadow-sm"
+            x-init="$watch('fontSize', val => localStorage.setItem('fontSize', val))">
+            <button class="btn btn-secondary px-3" @click="if (fontSize > 12) fontSize--" :disabled="fontSize === 12">
+                <i class="fa-solid fa-minus fa-fw"></i>
+            </button>
+            <button class="btn btn-secondary px-3" @click="if (fontSize < 24) fontSize++" :disabled="fontSize === 24">
+                <i class="fa-solid fa-plus fa-fw"></i>
+            </button>
+            <input type="text" class="form-control" readonly :value="fontSize + ' px'">
+        </div>
+        <div class="d-flex gap-1">
+            <button class="btn btn-success shadow-sm" @click="editorToggle()">
+                <i class="fa-solid fa-code fa-fw me-1"></i> Toggle Editor
+            </button>
+            <div class="btn-group dropup">
+                <button class="btn btn-primary shadow-sm dropdown-toggle" data-bs-toggle="dropdown"
+                    data-bs-auto-close="outside">
+                    <i class="fa-solid fa-download fa-fw me-1"></i> Save File
+                </button>
+                <div class="dropdown-menu mb-2 px-3 py-2 shadow">
+                    <div class="input-group">
+                        <input type="text" class="form-control" x-model="fileSaveName">
+                        <button class="btn btn-primary px-3" @click="downloadFile()">
+                            <i class="fa-solid fa-check fa-fw"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

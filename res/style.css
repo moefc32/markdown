@@ -79,9 +79,18 @@ div#html *:first-child {
     margin-top: 0;
 }
 
-.button-container {
+.configs {
     position: fixed;
     z-index: 1000;
     right: 15px;
     bottom: 15px;
+    width: 300px;
+}
+
+.configs .input-group {
+    width: 290px;
+}
+
+.dropdown-menu .input-group {
+    width: 260px;
 }

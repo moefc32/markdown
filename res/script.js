@@ -6,8 +6,9 @@ function alpineData() {
 
     return {
         input: '',
-        fontSize: 16,
+        fontSize: localStorage.getItem('fontSize') || 16,
         wysiwyg: false,
+        fileSaveName: 'markdown.md',
         compiledMarkdown: function () {
             return marked.parse(this.input, { sanitize: true });
         },
@@ -20,7 +21,7 @@ function alpineData() {
             const file = new Blob([this.input], { type: 'text/plain' });
 
             a.href = URL.createObjectURL(file);
-            a.download = 'markdown.md';
+            a.download = this.fileSaveName;
             a.click();
 
             URL.revokeObjectURL(a.href);
