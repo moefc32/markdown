@@ -6,6 +6,7 @@ function alpineData() {
 
     return {
         input: '',
+        fontSize: 16,
         wysiwyg: false,
         compiledMarkdown: function () {
             return marked.parse(this.input, { sanitize: true });
@@ -13,6 +14,17 @@ function alpineData() {
         editorToggle: function () {
             if (editorInstance) editorInstance.setContent(this.compiledMarkdown());
             this.wysiwyg = !this.wysiwyg;
+        },
+        downloadFile: function () {
+            const a = document.createElement('a');
+            const file = new Blob([this.input], { type: 'text/plain' });
+
+            a.href = URL.createObjectURL(file);
+            a.download = 'markdown.md';
+            a.click();
+
+            URL.revokeObjectURL(a.href);
+            a.remove();
         },
         alpineInit: function () {
             tinymce.init({

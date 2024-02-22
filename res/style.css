@@ -5,16 +5,9 @@
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
     width: 100%;
     height: 100vh;
-    margin: 0;
-    padding: 0;
     font-family: sans-serif;
-    font-size: 16px;
     line-height: 1.618em;
     background: #fff;
     color: #424242;
@@ -72,92 +65,23 @@ code {
 textarea#wysiwyg {
     resize: none;
     outline: none;
-    font-size: 14px;
     font-family: monospace;
-    border: 0;
-    overflow-y: auto;
 }
 
 textarea#markdown {
-    flex: 1;
-    padding: 30px;
     resize: none;
     outline: none;
     background-color: #eee;
-    font-size: 14px;
     font-family: monospace;
-    border: 0;
-    overflow-y: auto;
 }
 
-div.wysiwyg {
-    display: flex;
-    align-items: stretch;
-    flex: 1;
-    padding: 5px;
-}
-
-div.wysiwyg>div {
-    flex: 1;
-}
-
-div.markdown {
-    flex: 1;
-    padding: 30px;
-    border: 0;
-    overflow-y: auto;
-}
-
-div.markdown *:first-child {
+div#html *:first-child {
     margin-top: 0;
 }
 
-button {
-    padding: 10px 15px;
-    background: #ddd;
-    border: solid 1px #aaa;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, .15);
-    cursor: pointer;
-    transition: .15s;
-}
-
-button:hover {
-    background: #ccc;
-}
-
-button>i {
-    margin-right: .5em;
-}
-
 .button-container {
-    display: block;
     position: fixed;
     z-index: 1000;
     right: 15px;
     bottom: 15px;
-}
-
-.hide {
-    display: none !important;
-}
-
-@media (min-width: 768px) {
-    body {
-        flex-direction: row;
-    }
-}
-
-@media (min-width: 992px) {
-    div.wysiwyg {
-        flex: 4;
-    }
-
-    textarea#markdown {
-        flex: 6;
-    }
-
-    div.markdown {
-        flex: 9;
-    }
 }
