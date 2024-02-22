@@ -130,7 +130,7 @@ button>i {
     margin-right: .5em;
 }
 
-.buttons {
+.button-container {
     display: block;
     position: fixed;
     z-index: 1000;

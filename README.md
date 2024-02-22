@@ -1,5 +1,5 @@
 # Markdown
-Mfc Website simple markdown editor
+Simple markdown editor
 
 ## Cara Penggunaan
 Silakan akses pada pranala yang sudah tersedia, aplikasi dapat langsung digunakan.
